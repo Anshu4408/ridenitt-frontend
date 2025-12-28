@@ -23,6 +23,34 @@ import Redirect from "./Components/Redirect.tsx";
 
 const App: React.FC = () => {
   useEffect(() => {
+    let deferredPrompt: any = null;
+
+    const installBtn = document.getElementById("installBtn") as HTMLButtonElement;
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();                         
+      deferredPrompt = e;                         
+      installBtn.style.display = "block";          
+    });
+
+    installBtn?.addEventListener("click", async () => {
+      if (!deferredPrompt) return;
+
+      deferredPrompt.prompt();                     // show install dialog
+      const { outcome } = await deferredPrompt.userChoice;
+
+      if (outcome === "accepted") {
+        console.log("App installed");
+      } else {
+        console.log("Install dismissed");
+      }
+
+      deferredPrompt = null;
+      installBtn.style.display = "none";           // hide button
+    });
+
+  }, []);
+  useEffect(() => {
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
         navigator.serviceWorker
