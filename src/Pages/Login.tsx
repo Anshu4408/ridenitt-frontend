@@ -2,6 +2,7 @@ import React from "react";
 import { FaGoogle } from "react-icons/fa";
 import { useAuth } from "../Hooks/useAuth";
 import Redirect from "../Components/Redirect";
+import InstallBtn from "../Components/installBtn";
 
 const BACKEND_URL = (import.meta.env.VITE_BACKEND_URL as string) || "http://localhost:3000";
 
@@ -20,6 +21,7 @@ const Login: React.FC = () => {
 
   return (
     <div className="gradient-background h-screen px-6 pt-20">
+      <InstallBtn />
       <div className="w-full max-w-sm">
         <h2 className="text-black text-2xl md:text-3xl font-semibold text-left">
           Hop In!

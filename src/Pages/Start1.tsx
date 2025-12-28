@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
-
+import InstallBtn from "../Components/installBtn";
 const Start1: React.FC = () => {
   return (
     <div className="gradient-background grid place-items-center h-screen p-8">
+      <InstallBtn />
       <div className="max-w-sm flex flex-col gap-8">
         {/* Centered Image */}
         <img width={300} height={300} src="/Images/start-image-1.png" alt="Trusted Users" className="max-w-[90%] md:max-w-[70%]" />
