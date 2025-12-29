@@ -23,6 +23,7 @@ import Redirect from "./Components/Redirect.tsx";
 import InstallBtn from "./Components/installBtn.tsx";
 
 
+
 const App: React.FC = () => {
  
   useEffect(() => {
