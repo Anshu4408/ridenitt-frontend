@@ -20,8 +20,12 @@ import LoadingScreen from "./Components/LoadingScreen";
 import React from "react";
 import NewAccountSignup from "./Pages/NewAccountSignup.tsx";
 import Redirect from "./Components/Redirect.tsx";
+import InstallBtn from "./Components/installBtn.tsx";
+
+
 
 const App: React.FC = () => {
+ 
   useEffect(() => {
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
@@ -46,8 +50,11 @@ const CustomRouter = () => {
   const { authLoading, user, hasSignedUp } = useAuth();
 
   return (
+    
     <BrowserRouter>
+    
       <LoadingScreen isOpen={authLoading} />
+     
 
       <Routes>
         <Route path="/start" element={<Start />} />
@@ -95,6 +102,7 @@ const Layout = () => {
   return (
     <div>
       <Outlet />
+      <InstallBtn />
       <Navigation />
     </div>
   );

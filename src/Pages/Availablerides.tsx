@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import RideDetailsCard from "../Components/RideDetailsCard";
 import Header from "../Components/Header";
 import { MdAddLocationAlt } from "react-icons/md";
+import InstallBtn from "../Components/installBtn";
 
 export const AvailableRidesComponent: React.FC = () => {
     const { user } = useAuth();
@@ -36,10 +37,11 @@ export const AvailableRidesComponent: React.FC = () => {
 
     return (
         <div className="p-6 bg-gradient-to-b from-[#FFFFFF] to-[#C1EDE08C] min-h-screen relative">
+           
             <div className="pt-4 pb-2 px-6 sticky w-screen -ml-6 top-0 bg-white/25 backdrop-blur-lg">
                 <Header />
             </div>
-
+         <InstallBtn />
             <section className="mt-4">
                 <p className="connect text-[26px] font-Quicksand text-left font-[600]">
                     Connect. Ride. Save.

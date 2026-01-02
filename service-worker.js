@@ -6,6 +6,33 @@ const urlsToCache = [
   // Add more assets or routes as needed
 ];
 
+self.addEventListener("push", function (event) {
+  let data = {};
+
+  if (event.data) {
+    data = event.data.json();
+  }
+
+  const title = data.title || "Ride NITT";
+  const options = {
+    body: data.body || "You have a new notification",
+    icon: "/logo192.png",
+    badge: "/logo192.png",
+    data: data.url || "/",
+  };
+
+  event.waitUntil(
+    self.registration.showNotification(title, options)
+  );
+});
+
+self.addEventListener("notificationclick", function (event) {
+  event.notification.close();
+
+  event.waitUntil(
+    clients.openWindow(event.notification.data)
+  );
+});
 // Install event: cache app shell
 self.addEventListener("install", event => {
   event.waitUntil(
