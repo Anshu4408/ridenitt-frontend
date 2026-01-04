@@ -147,15 +147,15 @@ export default function ShareRide() {
       <div className="w-full max-w-full mx-auto bg-white rounded-3xl py-4 px-4 shadow-lg border-2 border-black mb-20">
         {/* Departure Input */}
         <span className="ml-5 block mb-1">Departure</span>
-        <div role="button" onClick={() => setPage(1)} className="mb-4 w-full p-4 rounded-full bg-[#E8F8F3] border-2 border-black focus:outline-none placeholder:text-gray-800">
+        <button type="button" onClick={() => setPage(1)} className="mb-4 w-full p-4 rounded-full bg-[#E8F8F3] border-2 border-black focus:outline-none placeholder:text-gray-800">
           {pickup || "Select Pickup location"}
-        </div>
+        </button>
 
         {/* Destination Input */}
         <span className="ml-5 block mb-1">Destination</span>
-        <div role="button" onClick={() => setPage(1)} className="mb-4 w-full p-4 rounded-full bg-[#E8F8F3] border-2 border-black focus:outline-none placeholder:text-gray-800">
+        <button type="button" onClick={() => setPage(1)} className="mb-4 w-full p-4 rounded-full bg-[#E8F8F3] border-2 border-black focus:outline-none placeholder:text-gray-800">
           {drop || "Select Drop location"}
-        </div>
+        </button>
 
         {/* Date and Time Box */}
         <span className="block ml-5 mb-1">
@@ -199,28 +199,31 @@ export default function ShareRide() {
 
         {/* Transport Options */}
         <div className="grid grid-cols-3 gap-4 mb-6">
-          <div
+          <button
+            type="button"
             onClick={() => handleTransportSelect("Car")}
             className={`flex flex-col items-center p-4 rounded-2xl border-2 border-[#08B783] cursor-pointer ${selectedTransport === "Car" ? "bg-[#008955] text-white" : "bg-[#E8F8F3]"}`}
           >
             <img width={32} height={32} src="/Images/CAR.png" alt="Auto" className="w-8 h-auto mb-1" />
             <span className="text-sm sm:text-base md:text-lg">Car</span>
 
-          </div>
-          <div
+          </button>
+          <button
+            type="button"
             onClick={() => handleTransportSelect("Auto")}
             className={`flex flex-col items-center p-4 rounded-2xl border-2 border-[#08B783] cursor-pointer ${selectedTransport === "Auto" ? "bg-[#008955] text-white" : "bg-[#E8F8F3]"}`}
           >
             <img width={32} height={32} src="/Images/AUTO.png" alt="Auto" className="w-8 h-auto mb-1" />
             <span className="text-sm sm:text-base md:text-lg">Auto</span>
-          </div>
-          <div
+          </button>
+          <button
+            type="button"
             onClick={() => handleTransportSelect("BUS")}
             className={`flex flex-col items-center p-4 rounded-2xl border-2 border-[#08B783] cursor-pointer ${selectedTransport === "BUS" ? "bg-[#008955] text-white" : "bg-[#E8F8F3]"}`}
           >
             <img width={32} height={32} src="/Images/BUS.png" alt="BUS" className="w-8 block scale-125 h-auto mb-1" />
             <span className="text-sm sm:text-base md:text-lg">BUS</span>
-          </div>
+          </button>
         </div>
 
         {/* Preferred Gender */}
@@ -255,3 +258,4 @@ export default function ShareRide() {
 const months = [
   "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 ]
+ check this

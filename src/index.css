@@ -16,5 +16,10 @@ body {
 }
 
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 
-
+button {
+  outline: none;
+}
