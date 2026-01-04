@@ -30,7 +30,7 @@ export default function Notifications() {
       const subscription = await subscribeToPush();
 
       // 2️⃣ Send subscription to backend
-      const response = await fetch("/api/notifications", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/notifications`,{
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -61,7 +61,9 @@ export default function Notifications() {
 
     setLoading(true)
 
-    axios.get('/api/notifications')
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/notifications`,
+      { withCredentials: true }
+    )
       .then(response => setNotifications(response.data.data))
       .catch(error => console.error(error))
       .finally(() => setLoading(false))
@@ -99,11 +101,7 @@ export default function Notifications() {
     />
   </svg>
 
-  {pushEnabled
-    ? "Push Notifications Enabled"
-    : pushLoading
-      ? "Enabling..."
-      : "Enable Push Notifications"}
+ 
 </button>
       </div>
 
